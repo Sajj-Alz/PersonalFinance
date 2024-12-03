@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="HSClass.ConverterController"
+            prefHeight="400.0" prefWidth="600.0"> <!--"Converter.ConverterController"-->
+
+<AnchorPane/>
+        <Label fx:id="lblValue" text="Value" layoutX="107" layoutY="143" />
+        <TextField fx:id="txtValue" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+        <Label fx:id="lblUnit" text="Unit" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+        <ComboBox fx:id="EventType" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+
+<!-- Conversion Information -->
+        <Label fx:id="lblConvertTo" text="Convert to..." GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+        <Label fx:id="lblNewUnit1" text="New Unit" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+        <TextField fx:id="txtNewUnit" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+
+<!-- Output New Value -->
+        <Label fx:id="lblNewValue" text="New Value" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtNewValue" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+<!-- Convert and Reset Buttons -->
+        <Button text="Convert" fx:id="btnConvert" onAction="#onClickConvert" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <Button text="Reset" fx:id="btnReset" onAction="#onClickReset" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+</AnchorPane>
