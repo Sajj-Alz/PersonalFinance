@@ -50,7 +50,6 @@ public class HSClass {
         }
         this.classBlock = block;
         this.classCode = classCode;
-        this.classFinalGrade = 0;
         if ((semester1) && (semester2)) { //Correction in use of boolean statement within selection
             int x= (semester1Marks+semester2Marks);
                 if ((2<=x) && (x<=10)) this.classFinalGrade=1;
@@ -63,23 +62,23 @@ public class HSClass {
             }
         else if (!semester2) { //Correction in use of boolean statement within selection
              // only using this method because I know it works and despite corrections to previous it would not work as expected
-            if ((1<=semester1Marks) && (semester1Marks<=5)) this.classFinalGrade=1;
-            else if ((6<=semester1Marks) && (semester1Marks<=9)) this.classFinalGrade=2;
-            else if ((10<=semester1Marks) && (semester1Marks<=14))this.classFinalGrade=3;
-            else if ((15<=semester1Marks) && (semester1Marks<=18)) this.classFinalGrade=4;
-            else if ((19<=semester1Marks) && (semester1Marks<=23))this.classFinalGrade=5;
-            else if ((24<=semester1Marks) && (semester1Marks<=27)) this.classFinalGrade=6;
-            else if ((55<=semester1Marks) && (semester1Marks<=32))this.classFinalGrade=7;
+            if ((1<=semester1Marks) && (semester1Marks<=5)) {this.classFinalGrade=1;}
+            else if ((6<=semester1Marks) && (semester1Marks<=9)) {this.classFinalGrade=2;}
+            else if ((10<=semester1Marks) && (semester1Marks<=14)) {this.classFinalGrade=3;}
+            else if ((15<=semester1Marks) && (semester1Marks<=18)) {this.classFinalGrade=4;}
+            else if ((19<=semester1Marks) && (semester1Marks<=23)) {this.classFinalGrade=5;}
+            else if ((24<=semester1Marks) && (semester1Marks<=27)) {this.classFinalGrade=6;}
+            else if ((55<=semester1Marks) && (semester1Marks<=32)) {this.classFinalGrade=7;}
         }
         else if (!semester1) { //Correction in use of boolean statement within selection
              // only using this method because I know it works and despite corrections to previous it would not work as expected
-            if ((1<=semester2Marks) && (semester2Marks<=5)) this.classFinalGrade=1;
-            else if ((6<=semester2Marks) && (semester2Marks<=9)) this.classFinalGrade=2;
-            else if ((10<=semester2Marks) && (semester2Marks<=14)) this.classFinalGrade=3;
-            else if ((15<=semester2Marks) && (semester2Marks<=18)) this.classFinalGrade=4;
-            else if ((19<=semester2Marks) && (semester2Marks<=23)) this.classFinalGrade=5;
-            else if ((24<=semester2Marks) && (semester2Marks<=27)) this.classFinalGrade=6;
-            else if ((28<=semester2Marks) && (semester2Marks<=32)) this.classFinalGrade=7;
+            if ((1<=semester2Marks) && (semester2Marks<=5)) {this.classFinalGrade=1;}
+            else if ((6<=semester2Marks) && (semester2Marks<=9)) {this.classFinalGrade=2;}
+            else if ((10<=semester2Marks) && (semester2Marks<=14)) {this.classFinalGrade=3;}
+            else if ((15<=semester2Marks) && (semester2Marks<=18)) {this.classFinalGrade=4;}
+            else if ((19<=semester2Marks) && (semester2Marks<=23)) {this.classFinalGrade=5;}
+            else if ((24<=semester2Marks) && (semester2Marks<=27)) {this.classFinalGrade=6;}
+            else if ((28<=semester2Marks) && (semester2Marks<=32)) {this.classFinalGrade=7;}
         }
         classNum++;
         classList.add(this);

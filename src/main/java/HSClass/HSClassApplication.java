@@ -9,9 +9,6 @@ import java.io.IOException;
 public class HSClassApplication extends Application {
     public static void main(String[] args){launch (args);}
     public void start(Stage primaryStage) throws IOException {
-//        InputStream stream = new FileInputStream("/images.png");
-//        Image tKSLogo = new Image(stream);
-//        ImageView tKSLogoIMView = new ImageView();
         FXMLLoader fxmlLoader = new FXMLLoader(HSClassApplication.class.getResource("hsclass-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         primaryStage.setTitle("Class Creator");

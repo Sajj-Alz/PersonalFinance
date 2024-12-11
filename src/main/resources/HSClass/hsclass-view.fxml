@@ -17,15 +17,15 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HSClass.HSClassViewController">
    <HBox layoutX="10.0" layoutY="78.0" prefHeight="241.0" prefWidth="580.0">
       <VBox fx:id="VBLB" prefHeight="241.0" prefWidth="122.0">
-         <CheckBox fx:id="CBSemester1True1" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" text="Semester 1">
+         <CheckBox fx:id="CBSemester1True" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" text="Semester 1">
             <font>
                <Font size="17.0" />
             </font>
             <VBox.margin>
-               <Insets bottom="10.0" top="20.0" />
+               <Insets bottom="9.0" top="10.0" />
             </VBox.margin>
          </CheckBox>
-         <CheckBox fx:id="CBSemester2True1" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" text="Semester 2">
+         <CheckBox fx:id="CBSemester2True" mnemonicParsing="false" prefHeight="30.0" prefWidth="120.0" text="Semester 2">
             <font>
                <Font size="17.0" />
             </font>
@@ -33,15 +33,23 @@
                <Insets />
             </VBox.margin>
          </CheckBox>
-         <Label prefHeight="26.0" prefWidth="112.0" text="Class Name">
+         <Label fx:id="LBFinalGrade" prefHeight="26.0" prefWidth="112.0" text="Final Grade:">
+            <font>
+               <Font size="17.0" />
+            </font>
             <VBox.margin>
-               <Insets top="15.0" />
+               <Insets top="8.0" />
+            </VBox.margin>
+         </Label>
+         <Label fx:id="LBClassName" prefHeight="26.0" prefWidth="112.0" text="Class Name:">
+            <VBox.margin>
+               <Insets top="18.0" />
             </VBox.margin>
             <font>
                <Font size="17.0" />
             </font>
          </Label>
-         <Label prefHeight="26.0" prefWidth="112.0" text="Class Block">
+         <Label fx:id="LBClassBlock" prefHeight="26.0" prefWidth="112.0" text="Class Block:">
             <font>
                <Font size="17.0" />
             </font>
@@ -49,7 +57,7 @@
                <Insets top="15.0" />
             </VBox.margin>
          </Label>
-         <Label prefHeight="26.0" prefWidth="112.0" text="Class Code">
+         <Label fx:id="LBClassCode" prefHeight="26.0" prefWidth="112.0" text="Class Code:">
             <font>
                <Font size="17.0" />
             </font>
@@ -62,18 +70,26 @@
          <HBox.margin>
             <Insets left="10.0" />
          </HBox.margin>
-         <TextField fx:id="TFSem1Grade" onAction="#AddsSemester1Grade">
+         <TextField fx:id="TFSem1Marks" onAction="#AddsSemester1Grade">
             <VBox.margin>
-               <Insets bottom="15.0" top="25.0" />
+               <Insets bottom="10.0" top="10.0" />
             </VBox.margin>
          </TextField>
-         <TextField fx:id="TFSem2Grade" onAction="#AddsSemester2Grade" />
+         <TextField fx:id="TFSem2Marks" onAction="#AddsSemester2Grade">
+            <VBox.margin>
+               <Insets top="5.0" />
+            </VBox.margin></TextField>
+         <TextField fx:id="TFFinalGrade" onAction="#SetsFinalGrade">
+            <VBox.margin>
+               <Insets top="10.0" />
+            </VBox.margin>
+         </TextField>
          <TextField fx:id="TFClassName" onAction="#AddsClassName">
             <font>
                <Font size="16.0" />
             </font>
             <VBox.margin>
-               <Insets bottom="10.0" top="10.0" />
+               <Insets bottom="10.0" top="15.0" />
             </VBox.margin>
          </TextField>
          <TextField fx:id="TFClassBlock" onAction="#AddsClassBlock">
@@ -88,6 +104,9 @@
             <font>
                <Font size="16.0" />
             </font>
+            <VBox.margin>
+               <Insets />
+            </VBox.margin>
          </TextField>
       </VBox>
       <VBox fx:id="VBClasses" prefHeight="241.0" prefWidth="241.0">
@@ -114,4 +133,5 @@
          <Font name="System Italic" size="22.0" />
       </font>
    </Label>
+   <Button layoutX="406.0" layoutY="360.0" mnemonicParsing="false" onAction="#ClearsEverything" prefHeight="26.0" prefWidth="132.0" text="Clear All Selections" wrapText="true" />
 </AnchorPane>

@@ -10,22 +10,20 @@ import javafx.scene.layout.VBox;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
-import static HSClass.HSClass.setClassNum;
-
 public class HSClassViewController {
-    @FXML TextField TFSem1Grade=new TextField();
-    @FXML TextField TFSem2Grade=new TextField();
+    @FXML TextField TFFinalGrade =new TextField();
+    @FXML TextField TFSem1Marks =new TextField();
+    @FXML TextField TFSem2Marks =new TextField();
     @FXML TextField TFClassName=new TextField();
     @FXML TextField TFClassBlock=new TextField();
     @FXML TextField TFClassCode=new TextField();
     @FXML VBox VBClasses=new VBox();
     @FXML TextArea TAClassList=new TextArea();
-    @FXML CheckBox CBSemester2True1;//=new CheckBox("Semester 2 True");
-    @FXML CheckBox CBSemester1True1;//=new CheckBox("Semester 1 True");
+    @FXML CheckBox CBSemester2True;//=new CheckBox("Semester 2 True");
+    @FXML CheckBox CBSemester1True;//=new CheckBox("Semester 1 True");
     @FXML VBox VBLB = new VBox();
     @FXML VBox VBFill = new VBox();
     @FXML ImageView tKSLogoIMView;
-    int i=0; // for ensuring classnumber counter remains up to date
 
     //InputStream stream = new FileInputStream("HSClass/images.png");
    // Image tKSLogo = new Image(stream);
@@ -34,16 +32,16 @@ public class HSClassViewController {
 
 
     public HSClassViewController() throws FileNotFoundException {
-        //Image tKSLogo = new Image("file:HSClass/images.png"); Commentation of method as image required moved to resources folder
+        //Image tKSLogo = new Image("file:HSClass/images.png"); Commentation of method as image moved to resources folder
         //tKSLogoIMView.setImage(tKSLogo);
     }
 
     public void AddsSemester1Grade(ActionEvent actionEvent) {
-        int firstGrade=Integer.parseInt(TFSem1Grade.getText());
+        int firstGrade=Integer.parseInt(TFSem1Marks.getText());
     }
 
     public void AddsSemester2Grade(ActionEvent actionEvent) {
-        int secondGrade=Integer.parseInt(TFSem2Grade.getText());
+        int secondGrade=Integer.parseInt(TFSem2Marks.getText());
     }
 
     public void AddsClassName(ActionEvent actionEvent) {
@@ -60,7 +58,6 @@ public class HSClassViewController {
 
     public void ShowsClasses (ActionEvent actionEvent) {
         String result =classList.toString();
-        setClassNum(i);
         TAClassList.setText(result);
     }
 
@@ -68,10 +65,10 @@ public class HSClassViewController {
         int firstGrade;
         int secondGrade;
         // only declared variables to avoid previous errors found in the
-        // trial and error testing found in the combined declaration and assignment
-        // of firstGrade and secondGrade if one is deselected
+        // trial and error testing found in the combined decleration and assignment
+        // of firstGrade and sceondGrade if one is deselected
         try {
-            firstGrade = Integer.parseInt(TFSem1Grade.getText());
+            firstGrade = Integer.parseInt(TFSem1Marks.getText());
         } catch (NumberFormatException e) {
             // Handle invalid input for Semester 1 Grade
             firstGrade=0;
@@ -79,7 +76,7 @@ public class HSClassViewController {
         }
 
         try {
-            secondGrade = Integer.parseInt(TFSem2Grade.getText());
+            secondGrade = Integer.parseInt(TFSem2Marks.getText());
         } catch (NumberFormatException e) {
             // Handle invalid input for Semester 2 Grade
             secondGrade=0;
@@ -89,18 +86,36 @@ public class HSClassViewController {
         char classBlockLowerCase=TFClassBlock.getText().charAt(0);
         char classBlockUpperCase= Character.toUpperCase(classBlockLowerCase); // ensures class block will be upper case
         String classCode=TFClassCode.getText();
-        boolean sem1True1=CBSemester1True1.isSelected();
-        boolean sem2True2=CBSemester2True1.isSelected();
+        boolean sem1True1=CBSemester1True.isSelected();
+        boolean sem2True2=CBSemester2True.isSelected();
         //Create new objects based on inputs
         HSClass class1= new HSClass(sem1True1,firstGrade,sem2True2,secondGrade,className,classBlockUpperCase,classCode);
+        class1.setClassFinalGrade(Integer.parseInt(TFFinalGrade.getText())); // Brute Forcing solution since there is no time to fix it
         classList.add(class1);
-        TFSem1Grade.clear();
-        TFSem2Grade.clear();
+        TFSem1Marks.clear();
+        TFSem2Marks.clear();
         TFClassBlock.clear();
         TFClassCode.clear();
         TFClassName.clear();
-        CBSemester1True1.setSelected(false);
-        CBSemester2True1.setSelected(false);
-        i = classList.size()+1;
+        TFFinalGrade.clear();
+        CBSemester1True.setSelected(false);
+        CBSemester2True.setSelected(false);
     }
+
+    public void SetsFinalGrade(ActionEvent actionEvent) {
+        final int finalGrade=Integer.parseInt(TFFinalGrade.getText());
+    }
+
+    public void ClearsEverything(ActionEvent actionEvent) {
+        classList.clear();
+        TAClassList.clear();
+        CBSemester1True.setSelected(false);
+        CBSemester2True.setSelected(false);
+        TFSem1Marks.clear();
+        TFSem2Marks.clear();
+        TFClassBlock.clear();
+        TFClassCode.clear();
+        TFClassName.clear();
+        TFFinalGrade.clear();
+    } // Clear Function without closing application
 }
